@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IntellectualMuscle: Finally Look Like You Lift</title>
+<meta name="description" content="1-on-1 online coaching for forever skinny-fat guys who've trained for years and still can't tell. Real training, honest diet, safe PED guidance. Coached by Ketan, never a team." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0a0a0f;
+    --panel:#111119;
+    --panel-2:#16161f;
+    --line:#24242f;
+    --ink:#f5f5f7;
+    --muted:#a2a2b4;
+    --lime:#39ff14;
+    --lime-soft:#b7ff9c;
+    --red:#ff5252;
+    --amber:#ffb020;
+    --maxw:1120px;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  .display{font-family:'Anton',Impact,sans-serif;font-weight:400;letter-spacing:.5px;line-height:1.02;text-transform:uppercase}
+  .lime{color:var(--lime)}
+  .red{color:var(--red)}
+  .amber{color:var(--amber)}
+  .muted{color:var(--muted)}
+  em{color:var(--lime-soft);font-style:normal;font-weight:700}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,10,15,.86);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{font-family:'Anton',sans-serif;font-size:22px;letter-spacing:.5px;text-transform:uppercase}
+  .brand b{color:var(--lime)}
+  .topbar .cta-sm{display:none}
+  @media(min-width:640px){.topbar .cta-sm{display:inline-flex}}
+
+  /* ---------- buttons ---------- */
+  .cta{
+    display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+    background:var(--lime);color:#07130a;
+    font-weight:800;font-size:1.05rem;text-decoration:none;
+    padding:16px 30px;border-radius:999px;border:0;cursor:pointer;
+    box-shadow:0 8px 30px rgba(57,255,20,.28);
+    transition:transform .15s ease, box-shadow .15s ease;
+    text-align:center;line-height:1.2;
+  }
+  .cta:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(57,255,20,.42)}
+  .cta.big{font-size:1.25rem;padding:20px 40px}
+  .cta.block{display:flex;width:100%}
+  .cta-sm{
+    display:inline-flex;align-items:center;background:var(--lime);color:#07130a;
+    font-weight:800;font-size:.9rem;text-decoration:none;padding:10px 18px;border-radius:999px;
+  }
+  .cta-note{color:var(--muted);font-size:.9rem;margin-top:14px}
+
+  /* ---------- section rhythm ---------- */
+  section{padding:74px 0}
+  .band{background:var(--panel)}
+  .eyebrow{
+    display:inline-block;font-weight:800;font-size:.78rem;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--lime);border:1px solid rgba(57,255,20,.35);border-radius:999px;padding:6px 14px;margin-bottom:20px;
+  }
+  h1{font-size:clamp(2.4rem,7vw,4.6rem);margin-bottom:18px}
+  h2{font-size:clamp(1.9rem,5vw,3.1rem);margin-bottom:16px}
+  h3{font-size:clamp(1.3rem,3.4vw,1.7rem);margin-bottom:10px}
+  .lead{font-size:clamp(1.05rem,2.4vw,1.35rem);color:#dcdce4;max-width:760px}
+  .kicker{color:var(--muted);font-size:.95rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:56px 0 70px;
+    background:
+      radial-gradient(900px 500px at 80% -10%, rgba(57,255,20,.10), transparent 60%),
+      radial-gradient(700px 500px at 0% 20%, rgba(57,255,20,.05), transparent 55%);
+  }
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:34px;align-items:center}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.1fr .9fr;gap:44px}}
+  .hero h1 span{display:inline}
+  .hero-media{position:relative}
+  .hero-media img{width:100%;border-radius:var(--radius);border:1px solid var(--line)}
+  .trust-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .chip{background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:.85rem;color:#cfcfda;font-weight:600}
+  .chip b{color:var(--lime)}
+
+  /* ---------- generic grids ---------- */
+  .two{display:grid;grid-template-columns:1fr;gap:30px;align-items:center}
+  @media(min-width:860px){.two{grid-template-columns:1fr 1fr;gap:44px}}
+  .two.reverse .media{order:-1}
+  @media(min-width:860px){.two.reverse .media{order:0}}
+  .media img{width:100%;border-radius:var(--radius);border:1px solid var(--line)}
+  .cap{color:var(--muted);font-size:.85rem;margin-top:10px;text-align:center}
+
+  ul.check{list-style:none;margin:18px 0 0}
+  ul.check li{position:relative;padding:9px 0 9px 34px;border-bottom:1px solid var(--line);color:#e3e3ea}
+  ul.check li:last-child{border-bottom:0}
+  ul.check li::before{content:"";position:absolute;left:0;top:14px;width:18px;height:18px;border-radius:50%;
+    background:var(--lime);box-shadow:0 0 0 4px rgba(57,255,20,.14)}
+  ul.check li b{color:#fff}
+
+  .admit{font-size:clamp(1.25rem,3vw,1.7rem);font-weight:800;color:#fff;line-height:1.35;margin:6px 0 18px}
+  .admit .ul{text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:3px;text-underline-offset:6px}
+
+  ul.x{list-style:none;margin:16px 0 0}
+  ul.x li{position:relative;padding:8px 0 8px 30px;color:var(--muted)}
+  ul.x li::before{content:"\00d7";position:absolute;left:4px;top:6px;color:var(--red);font-weight:800;font-size:1.2rem;line-height:1}
+
+  /* ---------- proof strip ---------- */
+  .protocols{display:grid;grid-template-columns:1fr;gap:14px;margin-top:26px}
+  @media(min-width:720px){.protocols{grid-template-columns:1fr 1fr}}
+  .protocol{background:var(--panel-2);border:1px solid var(--line);border-left:3px solid var(--lime);border-radius:12px;padding:16px 18px}
+  .protocol b{display:block;color:#fff;font-size:1.02rem;margin-bottom:2px}
+  .protocol span{color:var(--muted);font-size:.92rem}
+
+  /* ---------- stat band ---------- */
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+  @media(min-width:720px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 18px;text-align:center}
+  .stat .n{font-family:'Anton',sans-serif;font-size:2.5rem;color:var(--lime);line-height:1}
+  .stat .l{color:var(--muted);font-size:.86rem;margin-top:8px;text-transform:uppercase;letter-spacing:.5px}
+
+  /* ---------- certs ---------- */
+  .certs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+  @media(min-width:820px){.certs{grid-template-columns:repeat(4,1fr)}}
+  .cert{background:#fff;border-radius:12px;padding:8px;border:1px solid var(--line)}
+  .cert img{border-radius:6px}
+  .cert .lab{color:#0a0a0f;font-size:.72rem;font-weight:700;text-align:center;padding:8px 4px 4px;line-height:1.25}
+
+  /* ---------- client results ---------- */
+  .results-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:30px}
+  @media(min-width:720px){.results-grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1000px){.results-grid{grid-template-columns:1fr 1fr 1fr}}
+  .card{background:var(--panel-2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+  .card .ph{background:#000;aspect-ratio:1/1;overflow:hidden}
+  .card .ph img{width:100%;height:100%;object-fit:cover}
+  .card .body{padding:18px}
+  .card .quote{font-weight:700;color:#fff;font-size:1.05rem;margin-bottom:8px;line-height:1.35}
+  .card .sub{color:var(--muted);font-size:.92rem}
+  .card .metric,.pc .metric{margin-top:12px;display:inline-block;background:rgba(57,255,20,.12);border:1px solid rgba(57,255,20,.3);
+    color:var(--lime-soft);font-weight:700;font-size:.85rem;padding:6px 12px;border-radius:999px}
+
+  /* check-in screenshots: masonry so they pack tight with no dead gaps */
+  .dm-grid{columns:1;column-gap:18px;margin-top:26px}
+  @media(min-width:760px){.dm-grid{columns:2}}
+  .dm{break-inside:avoid;-webkit-column-break-inside:avoid;margin:0 0 18px;
+    background:#0d0d14;border:1px solid var(--line);border-radius:12px;overflow:hidden;padding:8px}
+  .dm img{width:100%;height:auto;display:block;border-radius:8px}
+
+  /* ---------- client reel (YouTube) ---------- */
+  .reel-band{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .reel-wrap{max-width:820px;margin:28px auto 0}
+  .video-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;
+    border:1px solid var(--line);background:#000;box-shadow:0 18px 60px rgba(0,0,0,.5)}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  /* ---------- extra proof cards ---------- */
+  .proof2{display:grid;grid-template-columns:1fr;gap:22px;margin-top:26px}
+  @media(min-width:820px){.proof2{grid-template-columns:1fr 1fr}}
+  .pc{background:var(--panel-2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+  .pc .shot{background:#000;padding:10px}
+  .pc .shot img{width:100%;height:auto;border-radius:8px}
+  .pc .body{padding:20px}
+  .pc .body h3{margin-bottom:8px;color:#fff;font-size:clamp(1.15rem,2.4vw,1.4rem);line-height:1.25}
+  .pc .body p{color:var(--muted);font-size:.95rem}
+
+  /* ---------- get unstuck offer ---------- */
+  .offer{background:linear-gradient(180deg,#12181157,transparent),var(--panel-2);
+    border:1px solid rgba(57,255,20,.32);border-radius:22px;padding:30px;margin-top:34px;text-align:left}
+  @media(min-width:820px){.offer{padding:44px}}
+  .price-row{display:flex;align-items:baseline;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+  .price-old{color:#8b8b9c;text-decoration:line-through;font-size:1.6rem;font-weight:700}
+  .price-new{font-family:'Anton',sans-serif;font-size:clamp(3rem,9vw,4.6rem);color:var(--lime);line-height:1}
+  .price-sub{text-align:center;color:var(--muted);font-size:.95rem;margin-bottom:26px}
+  .stack{list-style:none;margin:0 0 6px}
+  .stack li{position:relative;padding:12px 0 12px 38px;border-bottom:1px solid var(--line);color:#e6e6ee}
+  .stack li:last-child{border-bottom:0}
+  .stack li::before{content:"";position:absolute;left:2px;top:18px;width:16px;height:16px;border-radius:50%;
+    background:var(--lime);box-shadow:0 0 0 4px rgba(57,255,20,.16)}
+  .stack li b{color:#fff}
+  .stack li .free{color:var(--lime);font-weight:800}
+  .net{margin-top:22px;background:#0d160c;border:1px solid rgba(57,255,20,.34);border-radius:14px;padding:20px 22px;color:#dfe9dc}
+  .net b{color:var(--lime)}
+
+  .facts{background:var(--panel-2);border:1px solid var(--line);border-radius:var(--radius);padding:26px;margin-top:34px}
+  .facts h3{color:#fff}
+  .facts ol{margin:14px 0 0 20px;color:#dcdce4}
+  .facts ol li{padding:6px 0}
+
+  /* ---------- offer ---------- */
+  .offer-box{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:20px;padding:30px}
+  @media(min-width:820px){.offer-box{padding:44px}}
+  .moat{margin-top:26px;background:#0d160c;border:1px solid rgba(57,255,20,.3);border-radius:14px;padding:22px 24px}
+  .moat b{color:var(--lime)}
+
+  /* ---------- who for ---------- */
+  .foryou{display:grid;grid-template-columns:1fr;gap:16px;margin-top:30px;counter-reset:f}
+  @media(min-width:760px){.foryou{grid-template-columns:1fr 1fr}}
+  .fy{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 22px 22px 66px;counter-increment:f}
+  .fy::before{content:counter(f);position:absolute;left:18px;top:20px;width:34px;height:34px;border-radius:50%;
+    background:var(--lime);color:#07130a;font-family:'Anton',sans-serif;font-size:1.1rem;display:flex;align-items:center;justify-content:center}
+  .fy b{color:#fff;display:block;margin-bottom:4px;font-size:1.05rem}
+  .fy span{color:var(--muted);font-size:.95rem}
+
+  /* ---------- objections ---------- */
+  .obj{border-top:1px solid var(--line)}
+  .obj details{border-bottom:1px solid var(--line);padding:6px 0}
+  .obj summary{cursor:pointer;list-style:none;padding:20px 44px 20px 6px;position:relative;font-weight:700;font-size:1.12rem;color:#fff}
+  .obj summary::-webkit-details-marker{display:none}
+  .obj summary::after{content:"+";position:absolute;right:10px;top:16px;color:var(--lime);font-size:1.6rem;font-weight:700;transition:transform .2s}
+  .obj details[open] summary::after{transform:rotate(45deg)}
+  .obj .ans{padding:0 6px 22px;color:#d3d3de}
+  .obj .ans b{color:var(--lime-soft)}
+
+  /* ---------- final cta ---------- */
+  .final{background:
+      radial-gradient(700px 420px at 50% 0%, rgba(57,255,20,.14), transparent 60%),
+      var(--panel);
+    text-align:center}
+  .final .wrap{max-width:820px}
+  .final .cta{margin-top:26px}
+  .scar{margin-top:18px;color:var(--muted);font-size:.95rem}
+
+  /* ---------- footer ---------- */
+  footer{background:#07070b;border-top:1px solid var(--line);padding:40px 0;text-align:center;color:var(--muted);font-size:.9rem}
+  footer .brand{font-size:26px;margin-bottom:10px;display:inline-block}
+  footer a{color:var(--lime-soft);text-decoration:none}
+  .disclaimer{max-width:760px;margin:18px auto 0;font-size:.78rem;color:#6a6a7a;line-height:1.5}
+
+  /* ---------- sticky mobile cta ---------- */
+  .mobcta{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:12px 16px;
+    background:rgba(10,10,15,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:block}
+  @media(min-width:640px){.mobcta{display:none}}
+  body{padding-bottom:0}
+  @media(max-width:639px){body{padding-bottom:76px}}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">Intellectual<b>Muscle</b></div>
+    <a href="#book" class="cta-sm" data-cta="topbar">Get unstuck ($99)</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">For forever skinny-fat guys</span>
+      <h1 class="display">You've trained for years.<br /><span class="lime">Nobody can tell.</span></h1>
+      <p class="lead">I help forever skinny-fat guys finally look like they lift. Real training built around you, a diet you can actually hold, and honest, safety-first PED and peptide guidance if you choose to use it.</p>
+      <div style="margin-top:28px">
+        <a href="#book" class="cta big" data-cta="hero">Book my Get Unstuck call</a>
+        <div class="cta-note">One-time call, $99 instead of my usual $299. 1-on-1 with me, Ketan. No team, no bots, no copy-paste templates.</div>
+      </div>
+      <div class="trust-row">
+        <span class="chip"><b>2400+</b> athletes coached</span>
+        <span class="chip">Harvard &amp; McMaster <b>S&amp;C</b></span>
+        <span class="chip"><b>18+</b> years in the trenches</span>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="assets/z-hero-ketan-transformation.png" alt="Ketan's own transformation, years apart" />
+      <div class="cap">My own body. Same guy who coaches you.</div>
+    </div>
+  </div>
+</header>
+
+<!-- CLIENT REEL (top) -->
+<section class="reel-band">
+  <div class="wrap" style="text-align:center">
+    <span class="eyebrow">Don't take my word for it</span>
+    <h2 class="display">60 seconds of real clients.</h2>
+    <p class="lead" style="margin:0 auto">Guys who were sitting exactly where you are now, in their own words.</p>
+    <div class="reel-wrap">
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/KfyodhZmfnE?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=KfyodhZmfnE&amp;rel=0&amp;modestbranding=1&amp;playsinline=1"
+                title="60 seconds of real clients" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section>
+  <div class="wrap">
+    <span class="kicker">If this is you</span>
+    <h2 class="display">You did <span class="lime">everything right</span>.<br />It still <span class="red">didn't work</span>.</h2>
+    <p class="lead">You trained hard for years. You bulked, you cut, you tried the lean bulk. You tracked macros, bought the programs, watched the channels, read the forums at 1am. And with a shirt off you still look soft. Still no chest. Still straight arms with no peak. Still no abs you have never once seen.</p>
+    <p class="lead" style="margin-top:18px">The quiet part is worse than being made fun of. Nobody ever asked if you even lift. After all those years, they just assume you don't.</p>
+    <div class="two" style="margin-top:34px">
+      <div>
+        <h3>You've already tried the whole list.</h3>
+        <ul class="x">
+          <li>5x5, StrongLifts, three different 5/3/1 runs</li>
+          <li>RP templates, Jeff Nippard, Greg Doucette HTLT</li>
+          <li>Keto, intermittent fasting, "clean eating," juice cleanses</li>
+          <li>Test boosters, pre-workouts, the whole supplement shelf</li>
+          <li>Paid coaches who emailed you a copy-paste plan</li>
+          <li>Bloodwork chasing a "low test" answer that never came</li>
+        </ul>
+        <p style="margin-top:20px" class="muted">It was never your effort. You have plenty of that. It's that nobody ever built a plan around <em>you</em>, then stayed on you while you ran it.</p>
+      </div>
+      <div class="media">
+        <img src="assets/z-all-shapes.png" alt="Ketan at every body type: skinny skinny, skinny fat, fat fat, jacked fat" />
+        <div class="cap">I have been every one of these. That is why I know the way out of it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KETAN PROOF STRIP -->
+<section class="band">
+  <div class="wrap">
+    <span class="kicker">Proof it's a method, not luck</span>
+    <h2 class="display">I lost <span class="red">21 lbs of fat</span> in <span class="lime">20 days</span>.</h2>
+    <div class="two" style="margin-top:20px">
+      <div class="media">
+        <img src="assets/z-dnp-21day.png" alt="Ketan 20 day fat loss, before and after" />
+        <div class="cap">These photos are 20 days apart. No photoshop.</div>
+      </div>
+      <div>
+        <p class="lead">That is what happens when every lever is dialled in to perfection before you start. Not guessing. Not "grinding harder." A sniper shot, not a shotgun.</p>
+        <div class="protocols">
+          <div class="protocol"><b>Periodized training</b><span>The right sets, reps and volume for your body, in order.</span></div>
+          <div class="protocol"><b>A diet with refeeds</b><span>Real food, built so you can actually hold it.</span></div>
+          <div class="protocol"><b>Cardio that keeps muscle</b><span>Burn the fat, not the size you fought for.</span></div>
+          <div class="protocol"><b>Safe, honest PED plan</b><span>Bloodwork first, PCT planned, only if you choose.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:56px">And it works when the body isn't mine.</h3>
+    <p class="muted">Same method, two people the internet would have written off.</p>
+    <div class="proof2">
+      <div class="pc">
+        <div class="shot"><img src="assets/z-diabetic-thumb.jpg" alt="Diabetic client 60 lb fat loss" /></div>
+        <div class="body">
+          <h3>A diabetic lost 60 lbs of fat in 90 days.</h3>
+          <p>Told for years that his condition made this impossible. It just meant the plan had to be built properly around him.</p>
+          <span class="metric">60 lbs in 90 days</span>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="shot"><img src="assets/z-kickboxer-dm.jpg" alt="Pro kickboxer check-in message about weight cut" /></div>
+        <div class="body">
+          <h3>A pro kickboxer dropped 20 lbs in 28 days.</h3>
+          <p>He had a weight class to make and a career on the line. His words, mid-cut, straight out of our chat.</p>
+          <span class="metric">20 lbs in 28 days</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORIGIN -->
+<section>
+  <div class="wrap">
+    <span class="kicker">Who is Ketan</span>
+    <h2 class="display">I stayed skinny-fat for 12 years<br />with every qualification you can name.</h2>
+    <p class="lead">I am not the coach who got lucky with genetics and sells you the dream. I am the guy who did it the hardest possible way, collected every certificate, and still looked average at 30.</p>
+
+    <div class="certs">
+      <div class="cert"><img src="assets/z-cert-harvard.png" alt="Harvard Strength &amp; Conditioning certificate" /><div class="lab">Harvard S&amp;C: trained 2400+ athletes</div></div>
+      <div class="cert"><img src="assets/z-cert-mcmaster.jpg" alt="McMaster University Strength &amp; Conditioning certificate" /><div class="lab">McMaster University S&amp;C</div></div>
+      <div class="cert"><img src="assets/z-cert-cscs.jpg" alt="NSCA Certified Strength and Conditioning Specialist" /><div class="lab">NSCA Certified (CSCS)</div></div>
+      <div class="cert"><img src="assets/z-cert-cressey.jpg" alt="Cressey Sports Performance seminar certificate" /><div class="lab">Trained under Cressey</div></div>
+    </div>
+
+    <div class="two" style="margin-top:40px">
+      <div>
+        <h3>15+ certifications. A decade of research. Still soft.</h3>
+        <p class="muted" style="margin-bottom:14px">I coached NFL, NBA and Olympic gold medalists. I read every article, watched every channel, listened to every podcast. I even used PEDs from 2017 on. And at 30, after all of it, I still did not look like I lifted.</p>
+        <p>Knowledge was never my problem. I was drowning in it. What I did not have was a plan built around me and someone who would not let me quit when it got hard.</p>
+      </div>
+      <div class="media">
+        <img src="assets/z-2008-vs-2026.jpg" alt="Ketan 2008 versus 2026" />
+        <div class="cap">2008 to 2026. The long, slow, expensive way, then the fast way.</div>
+      </div>
+    </div>
+
+    <div class="two reverse" style="margin-top:44px">
+      <div>
+        <h3>Then I did the one thing I kept avoiding...</h3>
+        <p class="admit"><span class="ul">Admitted to myself I was stuck.</span><br />And asked for <span class="lime">HELP</span>.</p>
+        <p>I went from 28% body fat down to a peeled, inside-out 6%. I lost count of how many times I broke my diet or shopped for food at 11pm after work. It got done anyway, because I finally had a system and someone in my corner.</p>
+        <div style="margin-top:22px"><a href="#book" class="cta" data-cta="origin">I want that system too</a></div>
+      </div>
+      <div class="media">
+        <img src="assets/z-ketan-abs-ba.png" alt="Ketan before and after, peeled to 6 to 7 percent" />
+        <div class="cap">8 months. What 12 years of guessing never gave me.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:44px">
+      <h3>I learned from the best in the field, in person.</h3>
+      <div class="media" style="margin-top:14px"><img src="assets/z-mentors-collage.png" alt="Ketan with top bodybuilding coaches and mentors" /></div>
+      <div class="cap">Podcasted with and learned from the coaches and pros you already follow, including Mike Israetel and Greg Doucette.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT RESULTS -->
+<section class="band">
+  <div class="wrap">
+    <span class="kicker">The part that matters for you</span>
+    <h2 class="display">Then I started getting other guys results<br />that took me <span class="red">12 years</span>. <span class="lime">In months</span>.</h2>
+    <p class="lead">Every person below was coached by me alone. Most are completely natural. Their words, not mine.</p>
+
+    <div class="results-grid">
+      <div class="card">
+        <div class="ph"><img src="assets/z-client-mirror-lean.png" alt="Ben's transformation" /></div>
+        <div class="body">
+          <div class="quote">"Was stuck on 115 forever, now I'm benching 135 for 5x5 easily."</div>
+          <div class="sub">Ben doubled his lifts in the first 12 weeks after a plateau he'd had for years.</div>
+          <span class="metric">115 lb plateau, gone</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="assets/z-client-back-ba.png" alt="Carlos's transformation" /></div>
+        <div class="body">
+          <div class="quote">"2 inches on my arms in 8 weeks? I expected a year."</div>
+          <div class="sub">Carlos put on 4 inches on his arms in 8 months and went up 50+ lbs with almost zero fat gain.</div>
+          <span class="metric">+4" arms, +50 lbs</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="assets/z-client-yousef-side.png" alt="Yousef's transformation" /></div>
+        <div class="body">
+          <div class="quote">"Lightest I've been in 2 years, in under 2 weeks."</div>
+          <div class="sub">Yousef, watching the fat come off his back while people in his life started noticing.</div>
+          <span class="metric">2-year low in 2 weeks</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="assets/z-client-front-ba.png" alt="Ivy League student transformation" /></div>
+        <div class="body">
+          <div class="quote">"Bro, 1 month? I am speechless."</div>
+          <div class="sub">An Ivy League student got more in one month with me than in his last 2 years following Derek, Huberman, Vigorous Steve and Doucette.</div>
+          <span class="metric">More in 1 month than 2 years</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="assets/z-client-redhead-ba.png" alt="Low testosterone client transformation" /></div>
+        <div class="body">
+          <div class="quote">"Looks like I gained 2 inches in 5 months."</div>
+          <div class="sub">A client with genuinely low testosterone, up 3kg and 2 inches on his arms in a single month on the plan I built him.</div>
+          <span class="metric">+2" arms on low T</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="assets/z-client-60yo.png" alt="60 year old client deadlifting" /></div>
+        <div class="body">
+          <div class="quote">"60 years old, deadlifting 205 for reps."</div>
+          <div class="sub">From a 12-year-old on their first bench PR to a 70-year-old squatting after hip reconstruction. Every age, same system.</div>
+          <span class="metric">Ages 12 to 70</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="ph"><img src="assets/z-client-artur.png" alt="Artur, 49kg to 77.3kg" loading="lazy" /></div>
+        <div class="body">
+          <div class="quote">Artur went from 49 kg to 77 kg.</div>
+          <div class="sub">The skinniest guy I've coached. He came in at 107 lbs and put on 63 lbs of bodyweight without ever looking soft.</div>
+          <span class="metric">107 lbs to 170 lbs</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="assets/z-client-sumer.jpg" alt="Sumer, doctor, 6 month transformation" loading="lazy" /></div>
+        <div class="body">
+          <div class="quote">A doctor who knew the theory and still couldn't do it.</div>
+          <div class="sub">Sumer lost 26 lbs of fat and put on 7 lbs of muscle in 6 months. Knowing the science was never his problem either.</div>
+          <span class="metric">-26 lbs fat, +7 lbs muscle</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="assets/z-client-70lbs.png" alt="Client down 70 lbs in 4 months" loading="lazy" /></div>
+        <div class="body">
+          <div class="quote">300 lbs to 230 lbs in 16 weeks.</div>
+          <div class="sub">He thought he was too far gone to start. Sixteen weeks later he needed a whole new suit.</div>
+          <span class="metric">-70 lbs in 4 months</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="assets/z-client-armwrestler.jpg" alt="Arm wrestling champion, 203 lbs to 185 lbs" loading="lazy" /></div>
+        <div class="body">
+          <div class="quote">203 lbs to 185 lbs in 8 weeks, strength intact.</div>
+          <div class="sub">An arm wrestling champion who had to drop weight without losing what he could pull. Cut the fat, kept the strength.</div>
+          <span class="metric">-18 lbs in 8 weeks</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="assets/z-client-arms3mo.jpg" alt="Client, arms up 1.5 inches in 3 months" loading="lazy" /></div>
+        <div class="body">
+          <div class="quote">Arms up 1.5 inches. Chest up 2.5 inches.</div>
+          <div class="sub">Three months. A 23-year-old who had been "training hard" for years with nothing to show for it.</div>
+          <span class="metric">+1.5" arms, +2.5" chest</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph"><img src="assets/z-client-leanout.png" alt="Client leaned out and filled out" loading="lazy" /></div>
+        <div class="body">
+          <div class="quote">Skinny-fat to actually lean.</div>
+          <div class="sub">The exact starting point most guys on this page are at. Soft, flat, no shape. Then a real plan.</div>
+          <span class="metric">Same start as you</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="muted" style="text-align:center;margin-top:34px;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:.85rem">Real screenshots from real check-ins</p>
+    <div class="dm-grid">
+      <div class="dm"><img src="assets/67bcb77e09833_Screenshot_20220810-000835_WhatsApp.jpg" alt="Client check-in: benching 130 for 5x5" loading="lazy" /></div>
+      <div class="dm"><img src="assets/67bcb654d943f_Screenshot_20220720-160220_WhatsApp.jpg" alt="Client check-in: squat, bench, overhead press and deadlift numbers climbing" loading="lazy" /></div>
+      <div class="dm"><img src="assets/67bcbc20f207c_Screenshot_20220721-150306_WhatsApp.jpg" alt="Client check-in: doubled starting numbers in 12 weeks" loading="lazy" /></div>
+      <div class="dm"><img src="assets/67f3da97d7b8c_tempFileForShare_20250407-095557.jpg" alt="Client check-in: delt and arm separation" loading="lazy" /></div>
+      <div class="dm"><img src="assets/67f3dabc0a118_tempFileForShare_20250407-095508.jpg" alt="Client check-in: best program he has run" loading="lazy" /></div>
+      <div class="dm"><img src="assets/67f3f10272bfb_Screenshot2025-04-07113557.png" alt="Client check-in: arm size up two inches" loading="lazy" /></div>
+      <div class="dm"><img src="assets/67bcb67204d72_Screenshot_20220721-144911_WhatsApp.jpg" alt="Client check-in: arms up to 13 inches" loading="lazy" /></div>
+      <div class="dm"><img src="assets/67f3e859c0e42_tempFileForShare_20250407-104233.jpg" alt="Client check-in: people telling him he looks huge" loading="lazy" /></div>
+    </div>
+
+    <div class="facts">
+      <h3>What you need to know about the results above</h3>
+      <ol>
+        <li>Most of these guys are completely natural. Only a few used any PEDs at all.</li>
+        <li>Every single one had a busy life. Work, school, exams, kids, travel. We made it work anyway.</li>
+        <li>They all made mistakes and hit plateaus. That is normal. The system handles it.</li>
+        <li>The only real difference: they committed, went all in, and let me drive.</li>
+      </ol>
+    </div>
+
+    <div style="text-align:center;margin-top:36px"><a href="#book" class="cta big" data-cta="results">I'm ready to be next</a></div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section>
+  <div class="wrap">
+    <span class="kicker">What you actually get</span>
+    <h2 class="display">1-on-1 coaching. The real <span class="lime">(non-AI)</span> kind.</h2>
+    <div class="offer-box">
+      <ul class="check">
+        <li><b>Training built around you</b>: your split, your gym, your schedule. Not a template with your name pasted on top.</li>
+        <li><b>A diet you can actually hold</b>: real food, your macros, built so you stop failing and restarting.</li>
+        <li><b>Weekly 1-on-1 video check-ins</b>: I review your training, your diet and your photos every week, on camera.</li>
+        <li><b>Direct access to me all week</b>: message me between calls. You are not talking to an assistant.</li>
+        <li><b>Honest PED and peptide guidance</b>: only if you choose to use. Bloodwork first, PCT planned, safety over everything. I tell you exactly what I use.</li>
+        <li><b>Group accountability</b>: a room of guys on the same path, so you are never doing it alone.</li>
+      </ul>
+      <div class="moat">
+        <b>The part no other coach can copy:</b> you get the same guy from all the videos. Me. No team, no chatbots, no outsourced trainers. I will hype you up when you need it and tell you straight when you're being dumb. Big-brother style.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT WORKS -->
+<section class="band">
+  <div class="wrap">
+    <span class="kicker">Why it works so fast</span>
+    <h2 class="display">You pay for wisdom, not knowledge.</h2>
+    <p class="lead">Knowledge is free. Anyone can google a program. Wisdom is knowing which of the 40 conflicting answers is right for you, today, so you stop wasting years finding out the hard way. That took me 18 years and over $80,000 in coaches to earn.</p>
+    <div class="two" style="margin-top:34px">
+      <div>
+        <ul class="check">
+          <li><b>Direct access to my brain</b> so you never lose another night googling opposing advice.</li>
+          <li><b>You are 65% more likely</b> to hit a goal once you commit to another person.</li>
+          <li><b>That jumps to 95%</b> with regular check-ins. You get both, every week.</li>
+          <li><b>No more paralysis by analysis.</b> Your only job is to execute and stack results.</li>
+        </ul>
+      </div>
+      <div class="media">
+        <img src="assets/z-known-unknown.png" alt="Known and unknown quadrant, why people lack results" />
+        <div class="cap">The reason you're stuck is mostly in the things you don't know you don't know. That's the gap a coach closes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO FOR -->
+<section>
+  <div class="wrap">
+    <span class="kicker">Be honest with yourself</span>
+    <h2 class="display">My coaching is only for this guy.</h2>
+    <div class="foryou">
+      <div class="fy"><b>You value your time, especially your youth</b><span>You'd rather buy the flight than spend years building the plane yourself.</span></div>
+      <div class="fy"><b>You're frustrated by repeated attempts</b><span>Sick of making the same mistakes and losing motivation. You just want to execute and know it works.</span></div>
+      <div class="fy"><b>You feel like an NPC in your own life</b><span>Watching everyone else make progress while you stay stuck. You're done with that.</span></div>
+      <div class="fy"><b>You're done with cheap dopamine</b><span>Weed, video games, endless scrolling. You want the real kind that comes from actually building something.</span></div>
+      <div class="fy"><b>You want the powerful version of you back</b><span>Maybe you had it once. This is about becoming that guy again, for good.</span></div>
+      <div class="fy"><b>You want a real human coach</b><span>Not a bot, not a template. A big brother who's been exactly where you are.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIONS -->
+<section class="band">
+  <div class="wrap">
+    <span class="kicker">Every excuse you're about to make</span>
+    <h2 class="display">Let's handle these now.</h2>
+    <div class="obj" style="margin-top:26px">
+      <details open>
+        <summary>"I don't have good genetics."</summary>
+        <div class="ans">You don't know that until you put in 6 to 12 months of real, consistent effort with a proper plan. I thought the same thing 12 years in. Then I found out I was just training and eating wrong the whole time. <b>Results below span every body type, age and background.</b></div>
+      </details>
+      <details>
+        <summary>"It works for them, it won't work for me."</summary>
+        <div class="ans">The guys on this page are brown, black, white, asian, arab and more. Teens to 70-year-olds. Natural and enhanced. <b>If you're a human being, this is tried and true.</b> You are not the one special exception.</div>
+      </details>
+      <details>
+        <summary>"I don't have the time, I'm too busy."</summary>
+        <div class="ans">My then 14-year-old client did it around school, kickboxing and jiujitsu. You need 5 to 6 focused hours a week, not the 10 to 20 most people waste. <b>I help you make the time work, not take over your life.</b></div>
+      </details>
+      <details>
+        <summary>"I'll just get a trainer at the gym."</summary>
+        <div class="ans">I trained at Crunch, LA Fitness, Fitness First and Harvard. I quit the gym-trainer model for a reason. <b>A gym trainer's job is to keep you in the building, not get you results.</b> And you get zero access the other 23 hours of the day.</div>
+      </details>
+      <details>
+        <summary>"It's too expensive."</summary>
+        <div class="ans">I spent over $80,000 of my own money to learn all of this in a few years instead of a lifetime. Money comes back. The years in your youth do not. <b>Payment plans are in place so you can start now and get results while you pay.</b></div>
+      </details>
+      <details>
+        <summary>"What if I fail?"</summary>
+        <div class="ans">This is the real reason most guys stay stuck. You are never guaranteed success in life, but you are guaranteed failure the moment you don't act. I've been down to $500 in the bank with $6,000 of debt. <b>I know the fear. You beat it by taking action anyway, and I'll optimise every step so it counts.</b></div>
+      </details>
+      <details>
+        <summary>"Okay, so how much?"</summary>
+        <div class="ans">Coaching runs <b>$200 to $600 a month</b>, depending on your goals and how hands-on you need me. Payment plans are there so you can start now instead of "next month" for the fifth year running. I'll give you the exact number on the call once I know what you actually need, and your $99 comes off it. Before you flinch at that: add up what you've already spent on supplements, programs, apps and gym memberships that got you nowhere. Most guys find they've quietly spent more than a year of coaching on stuff that never worked.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT REEL (bottom) -->
+<section class="reel-band">
+  <div class="wrap" style="text-align:center">
+    <span class="eyebrow">Before you decide</span>
+    <h2 class="display">Hear it from them, not me.</h2>
+    <p class="lead" style="margin:0 auto">Sixty seconds of guys who took the same step you're about to.</p>
+    <div class="reel-wrap">
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/KfyodhZmfnE?rel=0&amp;modestbranding=1&amp;playsinline=1"
+                title="60 seconds of real clients" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA / GET UNSTUCK OFFER -->
+<section class="final" id="book">
+  <div class="wrap">
+    <span class="eyebrow">Your move</span>
+    <h2 class="display">Stop guessing.<br /><span class="lime">Start executing.</span></h2>
+    <p class="lead" style="margin:0 auto">One call, just me and you. We find the exact reason you've been stuck for years, and you leave with the plan that fixes it.</p>
+
+    <div class="offer">
+      <div class="price-row">
+        <span class="price-old">$299</span>
+        <span class="price-new">$99</span>
+      </div>
+      <div class="price-sub">The Get Unstuck call. One time only, at a third of what I normally charge.</div>
+
+      <ul class="stack">
+        <li><b>A 45 minute 1-on-1 call with me.</b> We find the real reason you're stuck and map exactly what you do next. No script, no pitch deck.</li>
+        <li><b>My full training program, yours to keep.</b> <span class="free">Free, forever.</span> The same programming my paying clients run.</li>
+        <li><b>My full diet, yours to keep.</b> <span class="free">Free, forever.</span> Built so you can actually hold it, not a template you quit in a week.</li>
+        <li><b>Straight answers on PEDs and peptides.</b> Bloodwork first, safety first, and I tell you exactly what I use.</li>
+      </ul>
+
+      <div class="net">
+        <b>If you decide to work with me properly after it:</b> your $99 comes straight off the price of full coaching as your deposit. The call ends up costing you nothing.
+        <br /><br />
+        So the worst that happens is you walk away with my program and my diet for $99. The best that happens is it's free and you've already started.
+      </div>
+
+      <div style="text-align:center">
+        <a href="https://buy.stripe.com/28EcN52NA5RSci1gPVfAc0h" class="cta big" rel="noopener" data-cta="final">Book my Get Unstuck call ($99)</a>
+        <div class="scar">Once it's paid you go straight to my calendar to pick your time.</div>
+        <div class="scar">I run every one of these myself, so I only take 4 a week. When the slots are gone, they're gone.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">Intellectual<span class="lime">Muscle</span></div>
+    <p>Coaching with Ketan Seth. Follow the daily work on Instagram <a href="https://instagram.com/intellectual.muscle" target="_blank" rel="noopener">@intellectual.muscle</a></p>
+    <p class="disclaimer">Results shown are real clients and are not a guarantee of your own outcome. Your results depend on your starting point, effort and consistency. Any discussion of performance-enhancing drugs or peptides is educational and safety-first. Nothing here is medical advice. Always get bloodwork and speak with a qualified doctor before starting anything. Coaching is for adults only.</p>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="mobcta">
+  <a href="#book" class="cta block" data-cta="mobile">Book my Get Unstuck call</a>
+</div>
+
+<script>
+  // Lightweight event hooks for analytics to wire later. No SDK loaded.
+  document.querySelectorAll('[data-cta]').forEach(function(el){
+    el.addEventListener('click', function(){
+      var where = el.getAttribute('data-cta');
+      if (window.console) console.log('CTA click:', where);
+      // window.dataLayer && window.dataLayer.push({event:'cta_click', location: where});
+    });
+  });
+</script>
+</body>
+</html>
