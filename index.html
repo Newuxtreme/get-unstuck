@@ -251,6 +251,16 @@
   @media(min-width:640px){.mobcta{display:none}}
   body{padding-bottom:0}
   @media(max-width:639px){body{padding-bottom:76px}}
+
+  /* ---------- PHONE ONLY (under 768px): same-guy image moves up, right after the headline ---------- */
+  @media(max-width:767px){
+    .hero-grid{display:flex;flex-direction:column;gap:0}
+    .hero-grid > div:first-child{display:contents}
+    .hero-grid .eyebrow{align-self:flex-start}
+    .hero-grid .hero-media{order:1;width:100%;margin:0 0 26px}
+    .hero-grid .hero-media picture{display:contents}
+    .hero-grid > div:first-child > :not(.eyebrow):not(h1){order:2}
+  }
 </style>
 </head>
 <body>
@@ -281,7 +291,7 @@
       </div>
     </div>
     <div class="hero-media">
-      <img src="assets/z-hero-ketan-transformation.png" alt="Ketan's own transformation, years apart" />
+      <picture><source media="(max-width:767px)" srcset="assets/z-hero-ketan-transformation-phone.jpg" /><img src="assets/z-hero-ketan-transformation.png" alt="Ketan's own transformation, years apart" /></picture>
       <div class="cap">My own body. Same guy who coaches you.</div>
     </div>
   </div>
